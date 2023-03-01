@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Bloc Cat Demo'),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.red.shade900,
       ),
       body: BlocProvider(
         create: (_) => CatsCubit(SampleCatsRepository()),
@@ -41,7 +41,8 @@ class _HomePageState extends State<HomePage> {
                 child: ListView.builder(
                   itemBuilder: (context, index) => ListTile(
                     title: Image.network(state.response[index].url!),
-                    subtitle: Text(state.response[index].height.toString()),
+                    subtitle: Text(
+                        "Yummy Cat ${state.response[index].height.toString()}"),
                   ),
                   itemCount: state.response.length,
                 ),
@@ -66,8 +67,8 @@ class _HomePageState extends State<HomePage> {
       onPressed: () {
         context.read<CatsCubit>().getCats();
       },
-      child: const Icon(Icons.add_a_photo_outlined),
       backgroundColor: Colors.red.shade900,
+      child: const Icon(Icons.add_a_photo_outlined),
     );
   }
 }

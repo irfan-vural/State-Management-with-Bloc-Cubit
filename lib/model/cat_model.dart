@@ -15,19 +15,19 @@ class Cat {
     if (json['breeds'] != null) {
       breeds = <Breeds>[];
       json['breeds'].forEach((v) {
-        breeds!.add(new Breeds.fromJson(v));
+        breeds!.add(Breeds.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['width'] = this.width;
-    data['height'] = this.height;
-    data['url'] = this.url;
-    if (this.breeds != null) {
-      data['breeds'] = this.breeds!.map((v) => v.toJson()).toList();
+    data['id'] = id;
+    data['width'] = width;
+    data['height'] = height;
+    data['url'] = url;
+    if (breeds != null) {
+      data['breeds'] = breeds!.map((v) => v.toJson()).toList();
     }
     return data;
   }
