@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
         context.read<CatsCubit>().getCats();
       },
       backgroundColor: Colors.red.shade900,
-      child: const Icon(Icons.add_a_photo_outlined),
+      child: const Icon(Icons.add_a_photo),
     );
   }
 }
