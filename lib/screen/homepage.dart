@@ -37,15 +37,27 @@ class _HomePageState extends State<HomePage> {
                 child: CircularProgressIndicator(),
               );
             } else if (state is CatsLoaded) {
-              return Center(
-                child: ListView.builder(
-                  itemBuilder: (context, index) => ListTile(
-                    title: Image.network(state.response[index].url!),
-                    subtitle: Text(
-                        "Yummy Cat ${state.response[index].height.toString()}"),
+              return Column(
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.8,
+                    width: MediaQuery.of(context).size.width,
+                    child: Center(
+                      child: ListView.builder(
+                        itemCount: state.response.length,
+                        itemBuilder: (context, index) => ListTile(
+                          title: Image.network(state.response[index].url!),
+                          subtitle: Text(
+                              "Yummy Cat ${state.response[index].height.toString()}"),
+                        ),
+                      ),
+                    ),
                   ),
-                  itemCount: state.response.length,
-                ),
+                  SizedBox(
+                      height: MediaQuery.of(context).size.height * .08,
+                      width: MediaQuery.of(context).size.width,
+                      child: buildfab(context)),
+                ],
               );
             } else if (state is CatsError) {
               return const Center(
@@ -67,8 +79,8 @@ class _HomePageState extends State<HomePage> {
       onPressed: () {
         context.read<CatsCubit>().getCats();
       },
-      backgroundColor: Colors.red.shade900,
-      child: const Icon(Icons.add_a_photo),
+      backgroundColor: Colors.white,
+      child: const Icon(Icons.catching_pokemon),
     );
   }
 }

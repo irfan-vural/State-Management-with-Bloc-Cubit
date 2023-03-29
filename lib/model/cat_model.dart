@@ -56,8 +56,7 @@ class Breeds {
       this.wikipediaUrl});
 
   Breeds.fromJson(Map<String, dynamic> json) {
-    weight =
-        json['weight'] != null ? new Weight.fromJson(json['weight']) : null;
+    weight = json['weight'] != null ? Weight.fromJson(json['weight']) : null;
     id = json['id'];
     name = json['name'];
     temperament = json['temperament'];
